@@ -1,0 +1,9 @@
+pip3 install pandas
+pip3 install requests
+pip3 install selenium
+pip3 install pygooglenews
+pip3 install openpyxl
+pip3 install setuptools
+pip3 install -U --no-deps "feedparser>=6.0.8"
+pip3 install xlwt
+pip3 install sgmllib3k
