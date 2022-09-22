@@ -7,3 +7,5 @@ pip3 install setuptools
 pip3 install -U --no-deps "feedparser>=6.0.8"
 pip3 install xlwt
 pip3 install sgmllib3k
+
+pip3 install nltk
