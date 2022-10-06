@@ -9,3 +9,8 @@ pip3 install xlwt
 pip3 install sgmllib3k
 
 pip3 install nltk
+
+pip3 install regex
+
+pip3 install textblob
+pip3 install sklearn
