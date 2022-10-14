@@ -1,9 +1,9 @@
 [x for x in range(1, 10)]
 [x for x in range(1, 10) if x % 2 == 0]
+["Even" if i%2==0 else "Odd" for i in range(10)]
 #--------------------------------------------------------------
 import requests
 data = requests.get("https://www.gutenberg.org/cache/epub/8001/pg8001.html")
-content = data.content
 #--------------------------------------------------------------
 from bs4 import BeautifulSoup as bs
 import re
@@ -12,7 +12,7 @@ def strip_html_tag(text): # get rid of unnecessary spaces
     stripped_text = soup.get_text()
     stripped_text = re.sub(r'[\r|\n]+', '\n', stripped_text)
     return stripped_text
-clean_content = strip_html_tag(content)
+clean_content = strip_html_tag(data.content)
 #------- word tokenization ------------------------------------
 import nltk
 nltk.download('punkt')
@@ -48,7 +48,7 @@ alice_contents = [word.lower() for word in alice_contents if word.lower() not in
 
 ac = Counter(alice_contents)
 # ac.most_common(10)
-new_stopwords = ['nt', 'said', 'would', 'know', 'like', 'went'] # I don't like nt, would, know, like, went etc. Let's add more to stop words
+new_stopwords = ['nt', 'said', 'would', 'know', 'like', 'went'] # Let's add more to stop words
 for i in new_stopwords:
     stopwords.append(i)
 alice_contents = [word for word in alice_contents if word not in stopwords]
