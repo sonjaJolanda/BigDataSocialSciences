@@ -8,9 +8,9 @@ soup = bs(page.content, 'html.parser')
 # -> get parsed version of our data using HTML parser
 # -> constructor, needs itself and the markup-parser ToDo Remember this
 
-print(soup) # compared to the non parsed version this now ToDo find differences
+print(soup) # compared to the non parsed version this has now classified its contents and components
 # soup.head # navigate through the tree. (or soup.footer or soup.body)
-# print(soup.prettify()) # compared to the non prettified version this now ToDo find differences
+# print(soup.prettify()) # make it visually easier to read through
 #-------------------------------------------------------
 # soup.find_all('span', class='text') # this throws an error! -> use underscore
 print(soup.find('span', class_='text'))  # (element name, attributes) -> i think

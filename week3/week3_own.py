@@ -1,18 +1,13 @@
 name= "Heidi"
-coffee="Americano"
-print(f'Hello, {name}, would you like to drink your {coffee}?')
+print(f'Hello, {name}, would you like to drink your coffee?')
 #---------------------------
-import selenium
 from bs4 import BeautifulSoup as bs
 import requests
-import time
 import pandas as pd
-#---------------------------
+
 quote_list = []
 author_list = []
-
-#cause thats from 1 to 10
-for i in range(1, 11):
+for i in range(1, 11): # from 1 to 10
     url = f'http://quotes.toscrape.com/page/{i}/'
     response = requests.get(url)
     html = response.text
@@ -27,35 +22,29 @@ for i in range(1, 11):
     for author in authors:
         author_list.append(author.get_text())
 
-df1 = pd.DataFrame(data=quote_list, columns=['Quotes'])
-df2 = pd.DataFrame(data=author_list, columns=['Authors'])
-quotes = pd.concat([df1, df2], axis=1)
-quotes.to_excel('quotes_week2.xlsx')
+    df1 = pd.DataFrame(data=quote_list, columns=['Quotes'])
+    df2 = pd.DataFrame(data=author_list, columns=['Authors'])
+    quotes = pd.concat([df1, df2], axis=1)
+    quotes.to_excel('quotes_week2.xlsx')
 #---------------------------
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 driver = webdriver.Chrome()
-url = 'https://www.youtube.com/c/brettconti/videos'
-driver.get(url)
+driver.get('https://www.youtube.com/c/brettconti/videos')
 # time.sleep(5) # because the page might need some time to load
-driver.implicitly_wait(10)  # kinda the same as the line before,
-# but if the loading is done it will continue (not like time.sleep()
+driver.implicitly_wait(10)  # kinda the same as the line before, but if the loading is done it will continue (not like time.sleep()
 videos = driver.find_elements(By.CLASS_NAME, "style-scope ytd-grid-video-renderer")
-# specify a class name that occurs multiple times and use find_eelements to get a list returned
-video_list = []
+# specify a class name that occurs multiple times and use find_elements to get a list returned
 
+video_list = []
 for video in videos:
-    title = video.find_element(By.XPATH, './/*[@id="video-title"]').text  # put a dit at front!
+    title = video.find_element(By.XPATH, './/*[@id="video-title"]').text  # put a dot at front!
     views = video.find_element(By.XPATH, './/*[@id="metadata-line"]/span[1]').text
     posted = video.find_element(By.XPATH, './/*[@id="metadata-line"]/span[2]').text
-    video_item = {'title': title, 'views': views, 'posted': posted}
-
-    video_list.append(video_item)
+    video_list.append({'title': title, 'views': views, 'posted': posted})
 
 df = pd.DataFrame(video_list)
-df
-
 driver.quit()  # just closes the tab -> always do that!
 #---------------------------
 from pygooglenews import GoogleNews
@@ -74,11 +63,8 @@ for item in search['entries']:
 def get_title(search):
     stories = []
     search = gn.search(search)
-    newsitems = search['entries']
-    for item in newsitems:
-        story = {'title': item.title, 'link': item.link}
-        stories.append(story)
-        print(item.title)
+    for item in search['entries']:
+        stories.append({'title': item.title, 'link': item.link})
     return stories
 
 a = get_title('weather')
