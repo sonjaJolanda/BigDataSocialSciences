@@ -33,7 +33,7 @@ from selenium.webdriver.common.by import By
 driver = webdriver.Chrome()
 driver.get('https://www.youtube.com/c/brettconti/videos')
 # time.sleep(5) # because the page might need some time to load
-driver.implicitly_wait(10)  # kinda the same as the line before, but if the loading is done it will continue (not like time.sleep()
+driver.implicitly_wait(10)  # kinda the same as the line before, but if the loading is done it will continue (not like time.sleep())
 videos = driver.find_elements(By.CLASS_NAME, "style-scope ytd-grid-video-renderer")
 # specify a class name that occurs multiple times and use find_elements to get a list returned
 
