@@ -6,7 +6,7 @@ page = requests.get("http://quotes.toscrape.com/") # Sends a GET request. Return
 from bs4 import BeautifulSoup as bs
 soup = bs(page.content, 'html.parser') # compared to the non parsed version this has now classified its contents and components
 # -> get parsed version of our data using HTML parser
-# -> constructor, needs itself and the markup-parser ToDo Remember this
+# -> constructor, needs itself and the markup-parser
 
 # soup.head # navigate through the tree. (or soup.footer or soup.body)
 # print(soup.prettify()) # make it visually easier to read through

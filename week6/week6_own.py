@@ -30,7 +30,7 @@ x = vectorizer.fit(tokenized_sent)
 print(x.vocabulary_)
 
 print(vectorizer.get_stop_words())  # to see the stopwords of the library
-x.vocabulary_.get('clean') # ToDo what was this again?
+x.vocabulary_.get('clean')
 # ------- Fit Transform ----------------------------------------
 ft = vectorizer.fit_transform(tokenized_sent)
 count_array = ft.toarray()
