@@ -24,3 +24,5 @@ pip3 install community
 pip3 install networkx
 pip3 install pyvis
 
+pip3 install pydotplus
+
