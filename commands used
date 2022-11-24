@@ -25,4 +25,7 @@ pip3 install networkx
 pip3 install pyvis
 
 pip3 install pydotplus
+pip3 install dtreeviz
+pip3 install graphviz
 
+conda install python-graphviz
