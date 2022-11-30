@@ -21,10 +21,9 @@ quotes = []
 for i in txt: # there is no normal for loop in python
     quotes.append((i.get_text()))
 #-------------------------------------------------------
-import pandas as pd # use pandas library to make our variable into a dataframe
+import pandas as pd
 quotes_df = pd.DataFrame(data=quotes, columns=["quotes"])
-quotes_df.to_excel('../week2/quotes_excel_sheet_week2.xlsx') # export df to excel
-
+quotes_df.to_excel('../week2/quotes_excel_sheet_week2.xlsx')
 #----------------------------------------------
 authors_txt = soup.find_all('small', class_='author')
 authors = []
